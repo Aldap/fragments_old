@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/gpsFragment"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+     <TextView
+           android:id="@+id/textCoordinates"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+          android:layout_below="@+id/textView1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:text="@string/textCoordinates"
+           android:textAppearance="?android:attr/textAppearanceSmall" />
+      <TextView
+            android:id="@+id/textLatitude"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+          android:layout_below="@id/textCoordinates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/textLatitude"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+      <TextView
+          android:id="@+id/textLongitude"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@id/textLatitude"
+          android:layout_alignRight="@id/textLatitude"
+          android:layout_below="@id/textLatitude"
+          android:layout_marginTop="3dp"
+          android:text="@string/textLongitude"
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+
+      <TextView
+           android:id="@+id/textSattelites"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+          android:layout_below="@+id/textLongitude"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:text="@string/textSattelites"
+           android:textAppearance="?android:attr/textAppearanceSmall" />
+     <TextView
+            android:id="@+id/textInView"
+        android:layout_marginTop="0dp"
+          android:layout_alignLeft="@id/textLongitude"
+          android:layout_alignRight="@id/textLongitude"
+          android:layout_below="@id/textSattelites"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textInView"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+     <TextView
+            android:id="@+id/textUsed"
+        android:layout_marginTop="3dp"
+          android:layout_alignLeft="@id/textInView"
+          android:layout_alignRight="@id/textInView"
+          android:layout_below="@id/textInView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textUsed"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+     <TextView
+           android:id="@+id/textInfo"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+          android:layout_below="@+id/textUsed"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:text="@string/textInfo"
+           android:textAppearance="?android:attr/textAppearanceSmall" />
+      <TextView
+        android:id="@+id/textRecieved"
+         android:layout_marginTop="3dp"
+          android:layout_alignLeft="@id/textInView"
+          android:layout_alignRight="@id/textInView"
+          android:layout_below="@id/textInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textRecieved"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+      <TextView
+        android:id="@+id/textSent"
+         android:layout_marginTop="3dp"
+          android:layout_alignLeft="@id/textRecieved"
+          android:layout_alignRight="@id/textRecieved"
+          android:layout_below="@id/textRecieved"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textSent"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+      <TextView
+        android:id="@+id/textDelta"
+         android:layout_marginTop="3dp"
+          android:layout_alignLeft="@id/textSent"
+          android:layout_alignRight="@id/textSent"
+          android:layout_below="@id/textSent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textDelta"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    <TextView
+            android:id="@+id/textError"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_below="@+id/textDelta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Error occured. See log file."
+            android:visibility="gone"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>

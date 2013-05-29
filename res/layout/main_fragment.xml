@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/buttonStatus"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonStatus"/>
+
+    <Button
+        android:id="@+id/buttonTasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonStatus"
+        android:layout_alignRight="@+id/buttonStatus"
+        android:layout_below="@+id/buttonStatus"
+        android:layout_marginTop="5dp"
+        android:visibility="gone"
+        android:text="@string/buttonTasks" />
+    
+    <Button
+        android:id="@+id/buttonGPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonTasks"
+        android:layout_alignRight="@+id/buttonTasks"
+        android:layout_below="@+id/buttonStatus"
+        android:layout_marginTop="5dp"
+        android:text="@string/buttonGPS" />
+
+    <Button
+        android:id="@+id/buttonSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonGPS"
+        android:layout_alignRight="@+id/buttonGPS"
+        android:layout_below="@+id/buttonGPS"
+        android:layout_marginTop="5dp"
+        android:text="@string/buttonSettings" />    
+    
+    <Button
+        android:id="@+id/buttonExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonSettings"
+        android:layout_alignRight="@+id/buttonSettings"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:text="@string/buttonExit" />
+
+</RelativeLayout>

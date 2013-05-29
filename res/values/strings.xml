@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">fragments</string>
+    <string name="action_settings">Settings</string>
+    <string name="buttonStatus">Статус</string>
+    <string name="buttonTasks">Задания</string>
+    <string name="buttonGPS">Данные GPS</string>
+    <string name="buttonSettings">Настройки</string>
+    <string name="buttonExit">Выход</string>
+    <string name="LoginEdit">Имя пользователя</string>
+    <string name="AddressEdit">Адрес сервера</string>
+    <string name="SettingsFragment">Настройки</string>
+    <string name="buttonSave">Сохранить</string>
+    <string name="intervalsPrompt">Интервал</string>
+    <string-array name="intervalsEntries">
+        <item>10 сек.</item>
+        <item>15 сек.</item>
+        <item>20 сек.</item>
+        <item>25 сек.</item>
+        <item>30 сек.</item>
+        <item>35 сек.</item>
+        <item>40 сек.</item>
+        <item>45 сек.</item>
+        <item>50 сек.</item>
+        <item>55 сек.</item>
+        <item>60 сек.</item>
+    </string-array>
+    <string name="statusFragment">Статус</string>
+    <string name="gpsFragment">Данные GPS</string>
+       <string name="textCoordinates">Координаты</string>
+           <string name="textLatitude">Широта: -</string>
+   <string name="textLongitude">Долгота: -</string>
+      <string name="textInView">В зоне видимости: -</string>
+   <string name="textUsed">Используется: -</string>
+   <string name="textSattelites">Спутники</string>
+   <string name="textInfo">Инфо</string>
+   <string name="textRecieved">Принято: -</string>
+   <string name="textSent">Отправлено: -</string>
+   <string name="textNotification">Сохранение недоступно:\nзапущен сбор данных</string>
+   <string name="textDelta">Дельта: -</string>
+   <string name="deltasPrompt">Дельта</string>
+   <string-array name="deltasEntries">
+        <item>5 м</item>
+        <item>10 м</item>
+        <item>15 м</item>
+        <item>20 м</item>
+        <item>25 м</item>
+        <item>30 м</item>
+        <item>35 м</item>
+        <item>40 м</item>
+        <item>45 м</item>
+        <item>50 м</item>
+        <item>55 м</item>
+        <item>60 м</item>
+    </string-array>
+</resources>

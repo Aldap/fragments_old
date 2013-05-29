@@ -1,0 +1,144 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/SettingsFragment"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <TextView
+           android:id="@+id/textAuthorization"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+          android:layout_below="@+id/textView1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:text="Авторизация"
+           android:textAppearance="?android:attr/textAppearanceSmall" />    
+    
+    <EditText
+        android:id="@+id/loginEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textAuthorization"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="2dp"
+        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890"
+        android:ems="10"
+        android:hint="@string/LoginEdit"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/AddressEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/loginEdit"
+        android:layout_alignRight="@id/loginEdit"
+        android:layout_below="@id/loginEdit"
+        android:layout_marginTop="5dp"
+        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890 ."
+        android:ems="10"
+        android:hint="@string/AddressEdit"
+        android:singleLine="true" />
+
+     <TextView
+           android:id="@+id/textRefreshAndSend"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+          android:layout_below="@+id/AddressEdit"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:text="Обновление и отправка"
+           android:textAppearance="?android:attr/textAppearanceSmall" />    
+    
+    <RadioGroup
+        android:id="@+id/radioGroupSendType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/AddressEdit"
+        android:layout_alignRight="@id/AddressEdit"
+        android:layout_below="@id/textRefreshAndSend"
+        android:layout_centerHorizontal="true" >
+        <RadioButton
+            android:id="@+id/radioOnDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="По расстоянию" />
+        <RadioButton
+            android:id="@+id/radioOnTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="По таймеру" />
+    </RadioGroup>    
+
+	<FrameLayout
+	    android:id="@+id/spinner_container"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/loginEdit"
+        android:layout_alignRight="@id/loginEdit"
+        android:layout_below="@id/radioGroupSendType"
+        android:padding="0dp" >
+    <Spinner
+        android:id="@+id/IntervalsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/intervalsEntries"
+        android:prompt="@string/intervalsPrompt"
+        android:visibility="gone" />
+
+    <Spinner
+        android:id="@+id/DeltasList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/deltasEntries"
+        android:prompt="@string/deltasPrompt" />  
+	    
+     </FrameLayout> 
+    
+    <CheckBox
+        android:id="@+id/checkBoxSendData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/loginEdit"
+        android:layout_alignRight="@id/loginEdit"
+        android:layout_below="@+id/spinner_container"
+        android:checked="true"
+        android:text="Отправлять данные" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/AddressEdit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/AddressEdit"
+        android:layout_marginBottom="10dp"
+        android:text="@string/buttonSave" />
+
+    <TextView
+        android:id="@+id/textNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/buttonSave"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/textNotification"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="gone" />
+
+</RelativeLayout>
