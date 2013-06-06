@@ -60,7 +60,7 @@ public class StatusFragment extends Fragment {
         	View v = getView();
         	Button buttonStart = (Button) getView().findViewById(R.id.buttonStart);
         	Button buttonStop = (Button) getView().findViewById(R.id.buttonStop);
-            Log.v("nmea",""+args.getBoolean(ARG_ISSTARTED));
+            //Log.v("nmea",""+args.getBoolean(ARG_ISSTARTED));
             if (isStarted == null) {isStarted = args.getBoolean(ARG_ISSTARTED);}
         	if (isStarted) {
 	    		 buttonStart.setVisibility(v.GONE);

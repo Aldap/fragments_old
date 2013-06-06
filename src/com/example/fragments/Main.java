@@ -36,8 +36,7 @@ public class Main extends Activity implements MainFragment.OnButtonClickListener
 	public int delta;
 	public int refreshType; //0 - distance, 1 - timer
 	public boolean toSend;
-	boolean timerCycle = false;
-	boolean isStarted = false;
+	public boolean isStarted;
     NmeaBroadcastReceiver br;
 
 	
@@ -66,7 +65,7 @@ public class Main extends Activity implements MainFragment.OnButtonClickListener
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-        Log.v("nmea","Main onCreate");
+        Log.v("nmea","Main onCreate, isStated="+address);
 
         if (savedInstanceState != null) {
             isStarted = savedInstanceState.getBoolean(ARG_ISSTARTED);
@@ -242,7 +241,7 @@ public class Main extends Activity implements MainFragment.OnButtonClickListener
 		if (refreshType == 1) {handler.removeCallbacks(runnable);}
 	}
 	public void OnCheckedChangeListenerCallback(RadioGroup group, int checkedId){
-		Log.v("checkedId", "call");
+		//Log.v("checkedId", "call");
 		FragmentManager fragmentManager = getFragmentManager();
 		SettingsFragment fragment = (SettingsFragment)fragmentManager.findFragmentByTag("SETTINGS_FRAGMENT");
 		View v =  fragment.getView();
@@ -274,20 +273,20 @@ public class Main extends Activity implements MainFragment.OnButtonClickListener
                     textRecieved = (TextView) v.findViewById(R.id.textRecieved);
                     textDelta = (TextView) v.findViewById(R.id.textDelta);
 
-                    textLatitude.setText("Широта: " + String.format("%.5f", bundle.getDouble("latitude")).replace(",","."));
-                    textLongitude.setText("Долгота: " + String.format("%.5f", bundle.getDouble("longitude")).replace(",","."));
-                    textRecieved.setText("Принято: " + bundle.getString("Recieved"));
-                    textDelta.setText("Дельта: "+String.valueOf(bundle.getLong("distanceDelta")));
+                    textLatitude.setText("РЁРёСЂРѕС‚Р°: " + String.format("%.5f", bundle.getDouble("latitude")).replace(",","."));
+                    textLongitude.setText("Р”РѕР»РіРѕС‚Р°: " + String.format("%.5f", bundle.getDouble("longitude")).replace(",","."));
+                    textRecieved.setText("РџСЂРёРЅСЏС‚Рѕ: " + bundle.getString("Recieved"));
+                    textDelta.setText("Р”РµР»СЊС‚Р°: "+String.valueOf(bundle.getLong("distanceDelta")));
                     if (bundle.getString("Sent")!=null){
                         textSent = (TextView) v.findViewById(R.id.textSent);
-                        textSent.setText("Отправлено: " + bundle.getString("Sent"));
+                        textSent.setText("РћС‚РїСЂР°РІР»РµРЅРѕ: " + bundle.getString("Sent"));
                     }
                 } else if (bundle != null && bundle.getString("sentenceIdentifier").equals("$GPGSV")){
                     textInView = (TextView) fragment.getView().findViewById(R.id.textInView);
-                    textInView.setText("В зоне видимости: " + bundle.getInt("inView"));
+                    textInView.setText("Р’ Р·РѕРЅРµ РІРёРґРёРјРѕСЃС‚Рё: " + bundle.getInt("inView"));
                 } else if (bundle != null && bundle.getString("sentenceIdentifier").equals("$GPGSA")){
                     textUsed = (TextView) fragment.getView().findViewById(R.id.textUsed);
-                    textUsed.setText("Используется: " +  bundle.getInt("used"));
+                    textUsed.setText("РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ: " +  bundle.getInt("used"));
                 }
             }
          }
@@ -298,8 +297,18 @@ public class Main extends Activity implements MainFragment.OnButtonClickListener
         // Save UI state changes to the savedInstanceState.
         // This bundle will be passed to onCreate if the process is
         // killed and restarted.
-        Log.v("nmea","Main onSaveInstanceState");
+        //Log.v("nmea","Main onSaveInstanceState");
         savedInstanceState.putBoolean(ARG_ISSTARTED, isStarted);
         // etc.
+    }
+    @Override
+    public void onStop(){
+        super.onStop();
+        //Log.v("nmea","Main onStop");
+    }
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        //Log.v("nmea", "Main onDestroy");
     }
 }

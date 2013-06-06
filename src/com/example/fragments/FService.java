@@ -144,7 +144,7 @@ public class FService extends Service {
 	       note.flags|=Notification.FLAG_NO_CLEAR; 
 	     startForeground(1337, note);
 	    } else {
-          if (intent.getExtras()!=null && intent.getExtras().getString(NMEA_ACTION).equals("start")) {
+          if (intent.getExtras()!=null && intent.getExtras().getString(NMEA_ACTION).equals("start") && isStarted == false) {
               Bundle bundle = intent.getExtras();
               login = bundle.getString(Main.ARG_LOGIN);
               address = bundle.getString(Main.ARG_ADDRESS);
@@ -157,7 +157,8 @@ public class FService extends Service {
 
               locManager.addNmeaListener(nmeaListener);
               locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 0, locListener);
-          } else if (intent.getExtras()!=null && intent.getExtras().getString(NMEA_ACTION).equals("stop")){
+          } else if (intent.getExtras()!=null && intent.getExtras().getString(NMEA_ACTION).equals("stop") && isStarted == true){
+              isStarted = false;
               locManager.removeUpdates(locListener);
               locManager.removeNmeaListener(nmeaListener);
           }
