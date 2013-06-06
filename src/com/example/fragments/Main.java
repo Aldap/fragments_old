@@ -1,18 +1,19 @@
 package com.example.fragments;
 
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.*;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.*;
 
-public class Main extends Activity implements MainFragment.OnButtonClickListener, SettingsFragment.OnSettingsButtonClickListener, StatusFragment.OnStatusButtonClickListener {
+public class Main extends FragmentActivity implements MainFragment.OnButtonClickListener, SettingsFragment.OnSettingsButtonClickListener, StatusFragment.OnStatusButtonClickListener {
 
     public static final String ARG_ADDRESS = "Address";
     public static final String ARG_LOGIN = "Login";
@@ -116,8 +117,7 @@ public class Main extends Activity implements MainFragment.OnButtonClickListener
         		editor.putBoolean(APP_PREFERENCES_TOSEND, toSend);         		
         	}
 		MainFragment mainFragment = new MainFragment();
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+		FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 		fragmentTransaction.add(R.id.fragment_container, mainFragment);
 		fragmentTransaction.commit();
 		
@@ -146,24 +146,21 @@ public class Main extends Activity implements MainFragment.OnButtonClickListener
 		Bundle data = new Bundle();
 		data.putBoolean(statusFragment.ARG_ISSTARTED, isStarted);
 		statusFragment.setArguments(data);
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 		fragmentTransaction.replace(R.id.fragment_container, statusFragment);
 		fragmentTransaction.addToBackStack(null);
 		fragmentTransaction.commit();
 	}
 	public void onTasksClicked(){
 		TasksFragment tasksFragment = new TasksFragment();
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 		fragmentTransaction.replace(R.id.fragment_container, tasksFragment);
 		fragmentTransaction.addToBackStack(null);
 		fragmentTransaction.commit();
 	}
 	public void onGPSClicked(){
 		GPSFragment gpsFragment = new GPSFragment();
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 		fragmentTransaction.replace(R.id.fragment_container, gpsFragment, "GPS_FRAGMENT");
 		fragmentTransaction.addToBackStack(null);
 		fragmentTransaction.commit();
@@ -179,14 +176,13 @@ public class Main extends Activity implements MainFragment.OnButtonClickListener
 		data.putBoolean(ARG_ISSTARTED, isStarted);
 		data.putBoolean(ARG_TOSEND, toSend);
 		settingsFragment.setArguments(data);
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 		fragmentTransaction.replace(R.id.fragment_container, settingsFragment, "SETTINGS_FRAGMENT");
 		fragmentTransaction.addToBackStack(null);
 		fragmentTransaction.commit();
 	}
 	public void onSaveClicked() {
-		FragmentManager fragmentManager = getFragmentManager();
+		FragmentManager fragmentManager = getSupportFragmentManager();
 		SettingsFragment fragment = (SettingsFragment)fragmentManager.findFragmentByTag("SETTINGS_FRAGMENT");
 		View v = fragment.getView();
 		EditText loginEdit = (EditText) v.findViewById(R.id.loginEdit);
@@ -242,7 +238,7 @@ public class Main extends Activity implements MainFragment.OnButtonClickListener
 	}
 	public void OnCheckedChangeListenerCallback(RadioGroup group, int checkedId){
 		//Log.v("checkedId", "call");
-		FragmentManager fragmentManager = getFragmentManager();
+		FragmentManager fragmentManager = getSupportFragmentManager();
 		SettingsFragment fragment = (SettingsFragment)fragmentManager.findFragmentByTag("SETTINGS_FRAGMENT");
 		View v =  fragment.getView();
 		Spinner IntervalsList = (Spinner) v.findViewById(R.id.IntervalsList);
@@ -262,7 +258,7 @@ public class Main extends Activity implements MainFragment.OnButtonClickListener
         public void onReceive(Context context, Intent intent)//this method receives broadcast messages. Be sure to modify AndroidManifest.xml file in order to enable message receiving
         {
             Bundle bundle = intent.getExtras();
-            FragmentManager fragmentManager = getFragmentManager();
+            FragmentManager fragmentManager = getSupportFragmentManager();
             GPSFragment fragment = (GPSFragment)fragmentManager.findFragmentByTag("GPS_FRAGMENT");
 
             if(fragment != null && fragment.isResumed()) {

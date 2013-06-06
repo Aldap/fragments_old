@@ -2,7 +2,7 @@ package com.example.fragments;
 
 
 import android.app.Activity;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -82,21 +82,7 @@ public class StatusFragment extends Fragment {
                     + " must implement OnStatusButtonClickListener");
         }
     }
-   /* @Override
-    public void onPause(){
-        super.onPause();
-        Log.v("nmea", "Fragment onPause");
-    }
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.v("nmea", "Fragment onStop");
-    }
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-        Log.v("nmea", "Fragment onDestroy");
-    }    */
+
     @Override
     public void onDetach(){
         super.onDetach();
