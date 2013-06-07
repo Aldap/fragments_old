@@ -75,7 +75,7 @@ public class FService extends Service {
         };
         nmeaListener = new GpsStatus.NmeaListener() {
             public void onNmeaReceived(long timestamp, String nmea) {
-
+                Log.v("nmea", nmea);
                 String[] results = nmea.split(",|\\*");
                 Bundle bundle = new Bundle();
                 bundle.putString("sentenceIdentifier", results[0]);
